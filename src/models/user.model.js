@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const { compareSync, hashSync, genSaltSync } = require('bcryptjs');
+const { UserSchemaName } = require('./model-names');
 
 const UserSchema = new Schema({
     name: { type: String, required: true },
@@ -27,4 +28,4 @@ UserSchema.pre('save', async function(next) {
     user.password = hashPassword;
     next();
 });
-module.exports = mongoose.model('user', UserSchema);
+module.exports = mongoose.model(UserSchemaName, UserSchema);

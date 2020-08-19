@@ -15,7 +15,7 @@ RESTful API builds with Node JS
 - swagger-ui-express 
 - mongoose-autopopulate
 
-###### DEV Run with npm install -D** 
+###### DEV Run with npm install -D
 - dotenv 
 - nodemon 
 - mockingoose 

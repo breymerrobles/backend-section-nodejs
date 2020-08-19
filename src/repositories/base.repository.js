@@ -10,13 +10,14 @@ class BaseRepository {
     }
 
     async create(entity) {
-        return await this.model.cerate(entity)
+        return await this.model.cerate(entity);
     }
     async update(id, entity) {
-        return await findByIdAndUpdate(id, entity, { new: true });
+        return await this.model.findByIdAndUpdate(id, entity, { new: true });
     }
     async delete(id) {
-        return await findByIdAndDelete(id);
+        await this.model.findByIdAndDelete(id);
+        return true;
     }
 }
 module.exports = BaseRepository;

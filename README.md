@@ -1,8 +1,7 @@
 # backend-section-nodejs
 RESTful API builds with Node JS  
 ## Dependencies used
-###### Build **
- Run with npm install** 
+###### Build Run with npm install 
 - express 
 - express-async-errors 
 - awilix 
@@ -16,8 +15,7 @@ RESTful API builds with Node JS
 - swagger-ui-express 
 - mongoose-autopopulate
 
-###### DEV **
-  Run with npm install -D** 
+###### DEV Run with npm install -D** 
 - dotenv 
 - nodemon 
 - mockingoose 

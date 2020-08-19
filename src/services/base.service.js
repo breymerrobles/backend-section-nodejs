@@ -23,7 +23,7 @@ class BaseService {
     }
 
     async create(entity) {
-        return await this.repository.cerate(entity);
+        return await this.repository.create(entity);
     }
     async update(id, entity) {
         if (!id) {

@@ -10,7 +10,7 @@ class BaseRepository {
     }
 
     async create(entity) {
-        return await this.model.cerate(entity);
+        return await this.model.create(entity);
     }
     async update(id, entity) {
         return await this.model.findByIdAndUpdate(id, entity, { new: true });

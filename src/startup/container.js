@@ -1,22 +1,19 @@
 const { createContainer, asClass, asValue, asFunction } = require('awilix');
-
 //Config
 const config = require('../config');
 //Services
 const { HomeService } = require('../services');
-
 //controllers
 const { HomeController } = require('../controllers');
 const Routes = require('../routes');
-
 //Routes
 const { HomeRoutes } = require('../routes/index.routes');
-
 //app 
 const app = require('.');
-
 //Models
 const { User, Idea, Comment } = require('../models');
+//Repository
+const { CommentRepository, IdeaRepository, UserRepository } = require('../repositories');
 const container = createContainer();
 container.register({
     router: asFunction(Routes).singleton(),
@@ -37,5 +34,11 @@ container.register({
     User: asValue(User),
     Idea: asValue(Idea),
     Comment: asValue(Comment)
+}).register({
+    //register repository
+    UserRepository: asClass(UserRepository).singleton(),
+    IdeaRepository: asClass(IdeaRepository).singleton(),
+    CommentRepository: asClass(CommentRepository).singleton()
+
 });
 module.exports = container;

@@ -16,6 +16,7 @@ module.exports = function({
 }) {
     const router = express.Router();
     const apiRoutes = express.Router();
+    const swaggerRoutes = express.Router();
 
     apiRoutes
         .use(express.json())
@@ -30,7 +31,10 @@ module.exports = function({
     apiRoutes.use("/auth", AuthRoutes);
 
     router.use("/v1/api", apiRoutes);
-    router.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+    swaggerRoutes.use('/user', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+    swaggerRoutes.use('/idea', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+    swaggerRoutes.use('/comment', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+    router.use('/api-docs', swaggerRoutes);
     router.use(NotFoundMiddleware);
     router.use(ErrorMiddleware);
     return router;

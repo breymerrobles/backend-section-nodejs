@@ -10,7 +10,8 @@ class UserController {
         res.status(200).send(user);
     }
     async getAll(req, res) {
-        const users = await _userService.getAll();
+        const { pageSize, pageNum } = req.query;
+        const users = await _userService.getAll(pageSize, pageNum);
         res.status(200).send(users);
     }
     async update(req, res) {

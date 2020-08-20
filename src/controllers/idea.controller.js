@@ -9,6 +9,11 @@ class IdeaController {
         const idea = await _ideaService.get(ideaId);
         res.status(200).send(idea);
     }
+    async getAll(req, res) {
+        const { pageSize, pageNum } = req.query;
+        const ideas = await _ideaService.getAll(pageSize, pageNum);
+        res.status(200).send(ideas);
+    }
     async create(req, res) {
         const { body } = req;
         const createdIdea = await _ideaService.create(body);

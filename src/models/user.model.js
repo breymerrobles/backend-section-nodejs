@@ -14,6 +14,8 @@ const UserSchema = new Schema({
 UserSchema.methods.toJSON = function() {
     let user = this.toObject();
     delete user.password;
+    delete user.createdAt;
+    delete user.updatedAt;
     return user;
 };
 UserSchema.methods.comparePasswords = function(password) {
